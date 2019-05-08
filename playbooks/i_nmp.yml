@@ -1,0 +1,9 @@
+- hosts: 172.0.3.62
+  sudo: yes
+  tasks:
+   - name: Nginx
+     apt: name=nginx state=latest
+   - name: Install MariaDB
+     apt: name=mariadb-server state=latest
+   - name: Install PHP
+     apt: name=php state=latest

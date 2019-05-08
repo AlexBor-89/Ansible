@@ -1,0 +1,7 @@
+- hosts: 172.0.3.62
+  sudo: yes
+  tasks:
+   - name: Remove PHP
+     action: apt pkg=php state=absent
+   - name: Autoremove
+     apt: autoremove=yes

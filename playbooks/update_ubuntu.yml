@@ -1,0 +1,13 @@
+- hosts: 172.0.3.62
+  sudo: yes
+  tasks:
+   - name: Update Ubuntu 18.04
+     apt: update_cache=yes
+   - name: Upgrade Ubuntu 18.04
+     apt: upgrade=dist
+   - name: Check if a reboot is required
+     register: file
+     stat: path=/var/run/reboot-required get_md5=no
+   - name: Reboot
+     command: /sbin/reboot
+     when: file.stat.exists == true

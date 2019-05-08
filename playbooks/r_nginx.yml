@@ -1,0 +1,7 @@
+- hosts: 172.0.3.62
+  sudo: yes
+  tasks:
+   - name: Remove NGINX
+     action: apt pkg=nginx state=absent
+   - name: Autoremove
+     apt: autoremove=yes
